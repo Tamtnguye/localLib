@@ -1,0 +1,40 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+  
+//-   ul
+//-     each author in author_list
+//-       li 
+//-         a(href=author.url) #{author.name} 
+//-         |  ( include author_lifespan_jade )
+
+//-     else
+//-       li There are no authors.
+extends layout
+
+
+
+block content
+
+  h1= title
+
+  
+
+  ul
+
+    each author in author_list
+
+      li 
+
+        a(href=author.url) #{author.name}
+
+        |  (
+
+        include author_lifespan.jade
+
+        | )
+
+    else
+
+      li There are no authors.

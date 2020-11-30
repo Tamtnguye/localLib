@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1 Author: #{author.name}
+ 
+  p #{author.date_of_birth} - #{author.date_of_death}
+  //can't get Update the Author model to add a lifespan virtual property. The lifespan should look like: date_of_birth - date_of_death, where both values have the same date format as BookInstance.due_back_formatted.
+
+  //same with Use Author.lifespan in all views where you currently explicitly use date_of_birth and date_of_death.
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Books
+    
+    dl
+      each book in author_books
+        dt 
+          a(href=book.url) #{book.title}
+        dd #{book.summary}
+
+      else
+        p This author has no books.
+hr
+p
+  a(href=author.url+'/delete') Delete author
