@@ -1,5 +1,5 @@
 const createError = require('http-errors');
-require('dotenv').config();
+//require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 const app = express();
 const mongoose = require('mongoose');
- const dev_db_url = 'mongodb+srv://jason:nguyen@cluster0.jgs2u.mongodb.net/locallibrary?retryWrites=true&w=majority';
+const dev_db_url = 'mongodb+srv://jason:nguyen@cluster0.jgs2u.mongodb.net/locallibrary?retryWrites=true&w=majority';
 const mongoDB = process.env.MONGO_URI || dev_db_url;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
