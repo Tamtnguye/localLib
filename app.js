@@ -15,6 +15,7 @@ const dev_db_url = 'mongodb+srv://jason:nguyen@cluster0.jgs2u.mongodb.net/locall
 const mongoDB = process.env.MONGO_URI || dev_db_url;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
